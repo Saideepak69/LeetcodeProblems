@@ -21,6 +21,8 @@ class Solution {
         if(root == null) return 1;
         int i = 0;
         Map<Integer, Integer> mpp = new HashMap<>();
+        int max = Integer.MIN_VALUE;
+        int max_level = 0;
         while(!q.isEmpty()){
             int n = q.size();
             int sum = 0;
@@ -31,14 +33,9 @@ class Solution {
                 if(node.right!=null) q.add(node.right);
             }
             i++;
-            mpp.put(sum, mpp.getOrDefault(sum,i));
-        }
-        int max = Integer.MIN_VALUE;
-        int max_level = 0;
-        for (Map.Entry<Integer, Integer> entry : mpp.entrySet()){
-            if(entry.getKey() > max){
-                max = entry.getKey();
-                max_level = entry.getValue();
+            if(sum > max){
+                max = sum;
+                max_level = i;
             }
         }
         return max_level;
