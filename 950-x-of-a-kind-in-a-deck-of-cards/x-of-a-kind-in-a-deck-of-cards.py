@@ -2,14 +2,12 @@ class Solution:
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
         mpp = {}
         dups = []
-        minFreq = float('inf')
         for card in deck:
             mpp[card] = mpp.get(card, 0) + 1
         for key, value in mpp.items():
             if value in dups:
                 continue
             dups.append([key, value])
-            minFreq = min(minFreq, value)
         print(dups)
         def gcd(a, b):
             if b == 0:
