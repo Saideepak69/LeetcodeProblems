@@ -10,7 +10,7 @@ class Solution:
                 cnt+=1
             else:
                 cnt=1
-            if cnt >= k:
+            if cnt - k >= 0:
                 records.append(i+1)
         for rec in records:
             if rec - k in records:
