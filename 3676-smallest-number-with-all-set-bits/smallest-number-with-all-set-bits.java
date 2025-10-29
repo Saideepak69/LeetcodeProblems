@@ -8,7 +8,7 @@ class Solution {
     }
     public int smallestNumber(int n) {
         if(n == 1) return 1;
-        for(int i=n; i<n*n; i++){
+        for(int i=n; i<(n*n)/2; i++){
             if(onesOrNot(i)) return i;
         }
         return -1;
