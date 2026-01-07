@@ -14,24 +14,22 @@
  * }
  */
 class Solution {
-    // Experiment first
     ArrayList<Long> arr = new ArrayList<>();
-    private long bottomUP(TreeNode root, long sum) {
-        if (root == null) return sum;
-        long left = bottomUP(root.left, sum);
-        long right = bottomUP(root.right, sum);
+    private long dfs(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        long left = dfs(root.left);
+        long right = dfs(root.right);
         arr.add(root.val + left + right);
         return root.val + left + right;
     }
-
     public int maxProduct(TreeNode root) {
-        long res = bottomUP(root, 0);
-        long maxProd = Long.MIN_VALUE;
-
-        for (long a : arr) {
-            maxProd = Math.max(maxProd, a * (res - a));
+        long tot = dfs(root);
+        long max = Long.MIN_VALUE;
+        for(long a: arr){
+            max = Math.max(max, (tot - a) * a);
         }
-
-        return (int)(maxProd % 1000000007);
+        return (int)(max % 1000000007);
     }
 }
