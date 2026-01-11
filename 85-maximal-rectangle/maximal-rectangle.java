@@ -7,7 +7,6 @@ class Solution {
             for(int j=0;j<n;j++){
                 if(i == 0){
                     if(matrix[i][j] == '1')hist[j] = 1;
-                    else hist[j] = 0;
                 }
                 else{
                     if(matrix[i][j]!='0')hist[j]+=1;
