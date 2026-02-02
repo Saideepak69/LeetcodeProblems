@@ -6,7 +6,6 @@ class Solution {
         List<List<Integer>> ans = new ArrayList<>();
         int fake1 = Integer.MAX_VALUE, fake2 = Integer.MAX_VALUE;
         for(int i=0; i<n-1; i++){
-            System.out.println(arr[i] + " " + arr[i+1]);
             if(arr[i+1] - arr[i] == minDiff){
                 minDiff = arr[i+1] - arr[i];
                 fake1 = Math.min(fake1, arr[i]);
