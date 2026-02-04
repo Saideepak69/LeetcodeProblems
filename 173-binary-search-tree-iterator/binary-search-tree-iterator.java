@@ -15,27 +15,27 @@
  */
 class BSTIterator {
 
-    public ArrayList<Integer> arr;
+    public PriorityQueue<Integer> pq;
+    public Iterator<Integer> value;
     public int i = 0;
-    private void addNode(TreeNode root, ArrayList<Integer> arr){
+    private void addNode(TreeNode root, PriorityQueue<Integer> pq){
         if(root == null) return;
-        arr.add(root.val);
-        addNode(root.left, arr);
-        addNode(root.right, arr);
+        pq.add(root.val);
+        addNode(root.left, pq);
+        addNode(root.right, pq);
     }
 
     public BSTIterator(TreeNode root) {
-        arr = new ArrayList<>();
-        addNode(root, arr);
-        Collections.sort(arr);
+        pq = new PriorityQueue<>();
+        addNode(root, pq);
     }
     
     public int next() {
-        return arr.get(i++);
+        return pq.poll();
     }
     
     public boolean hasNext() {
-        return i != arr.size();
+        return !pq.isEmpty();
     }
 }
 
