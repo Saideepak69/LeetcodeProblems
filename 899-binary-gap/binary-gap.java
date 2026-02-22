@@ -1,8 +1,7 @@
 class Solution {
     public int binaryGap(int n) {
-        ArrayList<Integer> arr = new ArrayList<>();
         int index = 0, prevInd = -1;
-        int maxGap = 0, oneCount = 0;
+        int maxGap = 0;
         while(n != 0){
             if ((n & 1) == 1) {
                 if (prevInd != -1) {
