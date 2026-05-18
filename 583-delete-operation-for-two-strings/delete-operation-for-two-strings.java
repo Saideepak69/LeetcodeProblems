@@ -1,7 +1,7 @@
 class Solution {
     public int minDistance(String word1, String word2) {
         int res = lcs(word1, word2);
-        return (word1.length() - res) + (word2.length() - res); 
+        return (word1.length() + word2.length() - (2 * res)); 
     }
     public int lcs(String s, String t){
         int n = s.length(), m = t.length();
