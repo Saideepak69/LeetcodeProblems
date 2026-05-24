@@ -1,48 +1,31 @@
 class MyQueue {
-
-    public Stack<Integer> stk;
-
+    ArrayDeque<Integer> dq;
     public MyQueue() {
-        stk = new Stack<>();
+        dq = new ArrayDeque<>();
     }
-
-    public Stack<Integer> helper(Stack<Integer> stk){
-        Stack<Integer> fake = new Stack<>();
-
-        while(!stk.isEmpty()){
-            fake.push(stk.pop());
-        }
-
-        return fake;
-    }
-
+    
     public void push(int x) {
-        stk.push(x);
+        dq.addLast(x);
     }
-
+    
     public int pop() {
-
-        Stack<Integer> fake = helper(stk);
-
-        int ans = fake.pop();
-
-        stk = helper(fake);
-
-        return ans;
+        return dq.removeFirst();
     }
-
+    
     public int peek() {
-
-        Stack<Integer> fake = helper(stk);
-
-        int ans = fake.peek();
-
-        stk = helper(fake);
-
-        return ans;
+        return dq.peekFirst();
     }
-
+    
     public boolean empty() {
-        return stk.isEmpty();
+        return dq.isEmpty();
     }
 }
+
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue obj = new MyQueue();
+ * obj.push(x);
+ * int param_2 = obj.pop();
+ * int param_3 = obj.peek();
+ * boolean param_4 = obj.empty();
+ */
